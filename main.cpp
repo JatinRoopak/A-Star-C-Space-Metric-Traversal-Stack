@@ -75,6 +75,22 @@ float calculateHeuristic(int x1, int y1, int x2, int y2) {
         return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
     };
 
+bool robotSize(const vector<vector<Node>>& nodes, int cx, int cy, int rows, int cols) {
+    int radius = 1; // assuming our robot is 3x3 matrix big in grid
+
+    for (int y = cy-radius; y <= cy+radius; y++){ 
+        for (int x = cx-radius; x<= cx+radius; x++){
+            if(x<0 || x>= cols || y<0 || y>= rows){
+                return true;
+            }
+            if (nodes[y][x].is_obstacle) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 
 bool solveAStar(vector <vector<Node>>& nodes, Node* start, Node* goal, int rows, int cols) {
     
@@ -115,7 +131,9 @@ bool solveAStar(vector <vector<Node>>& nodes, Node* start, Node* goal, int rows,
 
             if (newX < 0 || newX >= cols || newY < 0 || newY >= rows) continue;
 
-            if (nodes[newY][newX].is_obstacle || nodes[newY][newX].is_closed) continue; // Not hit the wall
+            if (nodes[newY][newX].is_closed) continue; // Not hit the wall
+
+            if (robotSize(nodes, newX, newY, rows, cols)) continue;; // check the fatness of robot so that it can fit 
 
             float newGCost = current -> g_cost + 1;
 
