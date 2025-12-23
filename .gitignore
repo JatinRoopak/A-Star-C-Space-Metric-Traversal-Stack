@@ -19,3 +19,4 @@ warehouse.png
 __pycache__/
 *.pyc
 .DS_Store
+visual_grid.txt
