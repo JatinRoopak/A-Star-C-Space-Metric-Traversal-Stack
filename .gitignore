@@ -1,0 +1,21 @@
+# --- Build Artifacts ---
+build/
+bin/
+install/
+log/
+main
+*.out
+*.o
+*.exe
+
+# --- Generated Data ---
+binary_grid.txt
+path_output.txt
+
+# --- Private Assets (Copyright/Local) ---
+warehouse.png
+
+# --- System Junk ---
+__pycache__/
+*.pyc
+.DS_Store
