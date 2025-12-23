@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
@@ -66,6 +67,10 @@ void printNode(const Node& n) {
     cout << "f_cost = " << n.f_cost << endl;
 }
 
+float calculateHeuristic(int x1, int y1, int x2, int y2) {
+        return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+    };
+
 int main() {
     string mapFile = "binary_grid.txt";
     cout << "loading map from " << mapFile << "....." << endl;
@@ -117,6 +122,16 @@ int main() {
     // Verification: Check a known wall (optional)
     // cout << "Node is obstacle " << nodes[0][0].is_obstacle << endl;
 
+    Node* startNode = &nodes[0][0];
+    Node* goalNode = &nodes[rows - 1][cols - 1];
+
+    startNode -> h_cost = calculateHeuristic(startNode -> x, startNode -> y, goalNode -> x, goalNode -> y);
+
+    cout << "Map Size: " << rows << "x" << cols << endl;
+    cout << "Mission Defined:" << endl;
+    cout << "Start: (" << startNode->x << ", " << startNode->y << ")" << endl;
+    cout << "Goal:  (" << goalNode->x << ", " << goalNode->y << ")" << endl;
+    cout << "Calculated Euclidean Distance (H-Cost): " << startNode->h_cost << endl;
     return 0;
 }
 
