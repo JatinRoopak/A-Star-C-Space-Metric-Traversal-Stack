@@ -1,6 +1,6 @@
 # 🌟 A* Metric Pathfinder
 
-> A high-performance autonomous navigation stack that reads a binary map, calculates the optimal path using the A* algorithm, and visualizes the result — while accounting for robot physical dimensions.
+> hybrid C++ and Python navigation pipeline implementing A* path planning with Configuration Space (C-Space) awareness. Designed to bridge high-level perception and low-level control, this project simulates metric traversal by validating the robot's physical footprint against binary maps, ensuring safe obstacle clearance rather than treating agents as dimensionless points.
 
 ---
 
