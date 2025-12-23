@@ -26,7 +26,7 @@ A* (A-Star) is an informed search algorithm that balances past cost and future e
 
 ### The Core Formula
 
-$$F = G + H$$
+$$\Huge F = G + H$$
 
 | Variable | Meaning | Intuition |
 | :---: | :--- | :--- |
