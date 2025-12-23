@@ -2,10 +2,6 @@
 
 > A high-performance autonomous navigation stack that reads a binary map, calculates the optimal path using the A* algorithm, and visualizes the result — while accounting for robot physical dimensions.
 
-![C++](https://img.shields.io/badge/Language-C++17-blue?style=for-the-badge&logo=c%2B%2B)
-![Python](https://img.shields.io/badge/Perception-Python-yellow?style=for-the-badge&logo=python)
-![Status](https://img.shields.io/badge/Status-Operational-green?style=for-the-badge)
-
 ---
 
 ## 🗺️ How It Works (Pipeline)
